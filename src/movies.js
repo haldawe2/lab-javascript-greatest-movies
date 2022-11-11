@@ -130,13 +130,11 @@ function bestYearAvg(moviesArray) {
     for (let i = 0; i < copyArray.length; i++) {
         if (i === copyArray.length - 1 || copyArray[i+1].year != copyArray[i].year) {
             let score = 0;
-            console.log(moviesInYear)
             if (moviesInYear === 1) {
                 score = copyArray[i].score;
             } 
             if (moviesInYear > 1) {
                 score = copyArray.slice(i+1 - moviesInYear, i + 1).map(movie => movie.score).reduce((a, b) => a + b) / (moviesInYear)
-                console.log("hello")
             }
             if (score > bestScore) {
                 bestYear = copyArray[i].year;
